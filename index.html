@@ -25,8 +25,8 @@
 
         
     <!-- Header -->
-    <div class="container header border-bottom fixed-top">
-        <div class="row">
+    <div class="container header border-bottom fixed-top " >
+        <div class="row" id="header-default">
             <div class="col-10 logo d-flex justify-content-start">
                 <a href="http://localhost:5500/index.html"><img src="assets/img/logo-ikiwae.png" class="logo-brand" alt="logo ikiwae"></a>
                 
@@ -151,28 +151,6 @@
             </div>
             <div class="modal-body">
               <div class="container mt-2" id="checkout-modal">
-                  <div class="row co-prod pb-3 d-flex border align-items-center px-2">
-                    <div class="col-2 img-co-prod pt-3">
-                        <img src="/assets/img/MEJA_HAUGA.jpg" alt="">
-                    </div>
-                    <div class="col-3 nameprod-co-prod d-flex flex-column bd-highlight">
-                        <h2 class="bd-highlight">DRÖNJÖNS</h2>
-                        <p class="bd-highlight">Meja, 67x67 cm</p>
-                    </div>
-                    <div class="col-3 harga-co-prod d-flex justify-content-center">
-                        <h2>Rp. 2.000.000</h2>
-                    </div>
-                    <div class="col-3 counter-co-prod d-flex justify-content-center">
-                        <div class="btn-group" role="group" aria-label="Basic outlined example">
-                            <button type="button" class="btn btn-outline-dark rounded-0" id="increment-button">+</button>
-                            <div class="form-control form-control-sm border-0 px-3" id="total-container"><span style="font-size: 20px;">10</span></div>
-                            <button type="button" class="btn btn-outline-dark rounded-0" id="decrement-button">-</button>
-                          </div>
-                    </div>
-                    <div class="col-1 delete-co-prod">
-                        <a href="#" class="btn btn-danger rounded-0"><i class="fa-solid fa-circle-minus"></i></a>
-                    </div>
-                  </div>
               </div>
             </div>
             <div class="modal-footer">
@@ -235,15 +213,15 @@
     </div>
 
 
-    <!-- Footer (Soon) --> 
+    <!-- Footer --> 
     <footer class="bg-light text-center text-lg-start">
 		<div class="container p-4 pb-1">
-            <!-- <div class="row">
+            <div class="row">
                 <div class="col-lg-6 col-md-12 mb-4 mb-md-0 text-center">
                   <h5 class="text-uppercase">MOTTO</h5>
           
                   <p>
-                    ANDA MISKIN KAMI SENANG (SQUAMOSS)
+                    ANDA MISKIN KAMI SENANG
                   </p>
                 </div>
           
@@ -254,11 +232,11 @@
                     Lelaki yang sukses adalah lelaki yang bisa menghasilkan lebih banyak uang daripada uang yang dihabiskan istrinya setiap bulannya
                   </p>
                 </div>
-              </div> -->
+              </div>
           <!-- Logo Sosmed -->
           <div id="logo-sos" class="text-center mt-2 mb-4">
             <img src="/assets/img/logo-ikiwae.png" alt="">
-            <h5 class="text-uppercase mb-2">FOLLOW US</h5>              
+            <h5 class="text-uppercase mb-2">FOLLOW US OR LEAVE</h5>              
             <ul id="logos-list">
                 <li class="logo-list mt-0 mr-0 mb-0 mt-0">                   
                     <a href="https://www.instagram.com/dbeoddl__/?hl=en" target="_blank"><i class="fa-brands fa-instagram fa-xl logo-sosmed mt-0 mr-0 mb-0 mt-0"></i></a>
@@ -267,10 +245,10 @@
                     <a href="https://www.youtube.com/watch?v=mEySviQ-_gM&t=1154s" target="_blank"><i class="fa-brands fa-youtube fa-xl logo-sosmed mt-0 mr-0 mb-0 mt-0"></i></a>
                 </li>
                 <li class="logo-list">
-                    <a href="https://www.twitter.com/" target="_blank"><i class="fa-brands fa-twitter fa-xl logo-sosmed mt-0 mr-0 mb-0 mt-0"></i></a>
+                    <a href="https://mobile.twitter.com/search?q=%23JISOO" target="_blank"><i class="fa-brands fa-twitter fa-xl logo-sosmed mt-0 mr-0 mb-0 mt-0"></i></a>
                 </li>
                 <li class="logo-list">
-                    <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook fa-xl logo-sosmed mt-0 mr-0 mb-0 mt-0"></i></a>
+                    <a href="https://www.facebook.com/BLACKPINK.JISOO/" target="_blank"><i class="fa-brands fa-facebook fa-xl logo-sosmed mt-0 mr-0 mb-0 mt-0"></i></a>
                 </li>
             </ul>
           </div>
@@ -288,7 +266,8 @@
     <!-- Boostrap -->
     <script type="module" src="./src/js/index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <!-- Fontawesome (Icon) -->
     <script src="https://kit.fontawesome.com/1668bc335b.js" crossorigin="anonymous"></script>
     </body>

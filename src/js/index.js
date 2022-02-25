@@ -231,20 +231,20 @@ const products = [
     promo: 2_799_000,
     image: imageUrl(`KASUR_SLATTUM1.jpg`),
   },
-  // {
-  //   id: 11,
-  //   nameProduct: `CLOSET`,
-  //   stock: 5,
-  //   shortDesc: `kebutuhan dasar, 46.5 x 35 x 43 cm`,
-  //   longDesc: `Kloset duduk siram, siramnya pakai gayung, sudah termasuk tutup dan baut`,
-  //   category: `Closet`,
-  //   colorAvailable: [`black`, `grey`, `white`, `red`],
-  //   rating: 3,
-  //   price: `FREE`,
-  //   IDR: `FREE`,
-  //   promo: 2_799_000,
-  //   image: imageUrl(`KOILEK.jpg`),
-  // },
+  {
+    id: 11,
+    nameProduct: `PLATSA`,
+    stock: 5,
+    shortDesc: `putih/fonnes,244x203 cm`,
+    longDesc: `Seprai PLATSA menutupi kebutuhan tidur dan penyimpanan Anda membantu Anda membuat oasis Anda sendiri di tempat-tempat terkecil sekalipun. Bersama dengan sistem PLATSA Anda dapat memiliki ruang privasi dan rumah untuk semua barang Anda.`,
+    category: `Kasur`,
+    colorAvailable: [`black`, `grey`, `white`, `red`],
+    rating: 5,
+    price: `17_470_000`,
+    IDR: rupiah(17470000),
+    promo: 15_000_000,
+    image: imageUrl(`KASUR_PLATSA.jpg`),
+  },
   {
     id: 12,
     nameProduct: `HEMMA`,
@@ -355,30 +355,31 @@ function renderProduct(data, tag) {
 
     <div class="row" id="${product}">
               <div class="content-overlay"></div>
-    ${separatedProducts[product]
-      .map(
-        `<div class ="col-3 d-flex justify-content-between">
-          <div class="card product">
+     ${separatedProducts[product]
+       .map(
+         ({ id, image, nameProduct, shortDesc, IDR }) =>
+           `<div class ="col-3 d-flex justify-content-between">
+           <div class="card product">
             <div class="row image-prod item-header" value=${id} style="cursor:pointer;">
               <img src="${image}" class="card-img-top" alt="${nameProduct}">
               <i class="fa-solid fa-eye icon-view"></i>
             </div>
       
-        <div class="card-body">
+         <div class="card-body">
             <h5 class="card-title">${nameProduct}</h5>
             <p class="card-text short-desc">${shortDesc}</p>
     
             <div class="footer-card d-flex justify-content-between">
                 <a  class="btn btn-checkout align-self-center px-2" value=${id}> <i class="fa-solid fa-cart-shopping"></i> Checkout</a>
                 <p class="harga">Rp. ${IDR}</p>
-            </div>
+             </div>
         </div>
       </div>
-    </div>`
-      )
-      .join("")}
+     </div>`
+       )
+       .join("")}
     </div>
-  </div>`;
+   </div>`;
   }
 }
 
@@ -404,8 +405,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
           if (!checkoutObject[nameProduct])
             checkoutObject[nameProduct] = { total: 0, product };
+
           checkoutObject[nameProduct].total++;
-          console.log(product);
 
           // localStorage.setItem("checkoutItem", JSON.stringify(checkoutItem));
           // localStorage.setItem("cartTotal", counterBadge);
@@ -520,15 +521,10 @@ const badgeContainer = document.querySelector(".badge-container");
 let totalPayment = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
-  const incrementItem = (total) => {
-    total++;
-    console.log(checkoutObject);
-  };
-
   badgeContainer.addEventListener("click", () => {
     if (!checkoutItem.length)
       checkoutModal.innerHTML += `
-        <div class="h3 text-center">Belanjaan kamu kosong</div>`;
+        <div class="h3 text-center" style="padding-top: 70px; padding-bottom: 70px">Belanjaan kamu kosong</div>`;
     else {
       for (const item in checkoutObject) {
         let {
@@ -563,7 +559,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>`;
 
         document.querySelectorAll(".increment-button").forEach((button) => {
-          // FITUR (BUG) DIBAWAH INI UNTUK UPDATE HANYA SATU SAJA
+          // FITUR DIBAWAH INI UNTUK UPDATE HANYA SATU SAJA
 
           button.addEventListener("click", () => {
             total++;
@@ -571,7 +567,7 @@ document.addEventListener("DOMContentLoaded", () => {
           });
 
           /*
-          // FITUR (BUG) DIBAWAH INI UNTUK UPDATE SEMUANYA 
+          // FITUR DIBAWAH INI UNTUK UPDATE  SEMUANYA 
           document.querySelectorAll(".total-container").forEach((element) => {
             button.addEventListener("click", () => {
               total++;
@@ -582,7 +578,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         document.querySelectorAll(".decrement-button").forEach((button) => {
-          // FITUR (BUG) DIBAWAH INI UNTUK UPDATE HANYA SATU SAJA
+          // FITUR DIBAWAH INI UNTUK UPDATE HANYA SATU SAJA
 
           button.addEventListener("click", () => {
             total--;
@@ -590,7 +586,7 @@ document.addEventListener("DOMContentLoaded", () => {
           });
 
           /*
-          // FITUR (BUG) DIBAWAH INI UNTUK UPDATE SEMUANYA 
+          // FITUR DIBAWAH INI UNTUK UPDATE  SEMUANYA 
           document.querySelectorAll(".total-container").forEach((element) => {
             button.addEventListener("click", () => {
               total--;

@@ -21,6 +21,10 @@
 }
 
 /* HEADER PAGE */
+.header-default {
+  background-color: #b90000;
+  border-color: #000000;
+}
 
 .header-page h1 {
   font-size: 80px;
@@ -487,6 +491,21 @@ footer {
   margin: 10px;
   border-radius: 50px;
   color: #003399;
+  transform: translate(2px, 0) skew(0deg);
+  transform: translate(-2px, 0) skew(0deg);
+}
+
+div:before,
+div:after {
+  content: attr(title);
+  position: absolute;
+  left: 0;
+}
+
+div:before {
+  animation: glitchTop 1s linear infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
 }
 
 .logo-sosmed:hover {
@@ -512,5 +531,17 @@ footer {
 }
 
 .discount-number h2 {
-  color: rgb(23, 71, 133);
+  color: #003399;
 }
+
+.tax-number h2 {
+  color: rgb(214, 42, 42);
+}
+
+.total-number {
+  background-color: #003399;
+  color: #ffffff;
+  margin-top: 300px;
+}
+
+/*====*/
