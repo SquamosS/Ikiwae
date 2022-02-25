@@ -510,3 +510,7 @@ footer {
 .header-inv h2 {
   font-size: 20px;
 }
+
+.discount-number h2 {
+  color: rgb(23, 71, 133);
+}
