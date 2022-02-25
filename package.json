@@ -1,0 +1,25 @@
+{
+  "name": "be",
+  "version": "1.0.0",
+  "description": "HELP ME",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel": "npx babel",
+    "dev": "npm run babel src -- --out-dir dist --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SquamosS/Ikiwae.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SquamosS/Ikiwae/issues"
+  },
+  "homepage": "https://github.com/SquamosS/Ikiwae#readme",
+  "dependencies": {
+    "redux": "^4.1.2"
+  }
+}

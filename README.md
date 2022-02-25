@@ -1,3 +1,0 @@
-HELP ME
-
-kenapa bang

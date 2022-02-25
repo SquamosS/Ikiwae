@@ -20,6 +20,20 @@
   background-color: white;
 }
 
+/* HEADER PAGE */
+
+.header-page h1 {
+  font-size: 80px;
+}
+.header-page h4 {
+  color: #d6d6d6;
+}
+
+.header-page {
+  padding-top: 80px;
+  padding-bottom: 50px;
+}
+
 /* HERO */
 
 .hero {
@@ -31,23 +45,34 @@
   height: 500px;
 }
 
-.hero .txt-hero {
-  margin-right: 80px;
+.hero .txt-hero p {
+  margin-right: 100px;
 }
 
 .hero .txt-hero h1 {
-  font-size: 80px;
+  font-size: 70px;
 }
 
 .hero .btn-hero {
   margin-top: 20px;
-  padding: 18px;
-  font-size: 18px;
+  padding: 15px;
+  font-size: 15px;
   font-weight: 600;
+  border-radius: 0%;
 }
 
 .hero .prc-hero h2 {
   font-size: 50px;
+}
+
+/* FEATURED */
+
+.featured .img-feature img {
+  width: 140px;
+}
+
+.featured .title-feature h2 {
+  font-size: 25px;
 }
 
 /* CSS PRODUCT SECTION */
@@ -70,9 +95,65 @@
   font-size: 60px;
 }
 
-.card-img-top img {
-  width: 280px;
+.image-prod {
+  display: block;
+  height: auto;
 }
+
+.footer-card a {
+  background-color: #ffcc00;
+  color: #003399;
+}
+
+.footer-card a:hover {
+  background-color: #8b751c;
+  color: #ffffff;
+}
+
+/* mau bikin hover img (* ali) */
+
+.image-prod img {
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+}
+
+.image-prod img {
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+}
+
+.image-prod .content-overlay {
+  background: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  height: 99%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 1;
+  -webkit-transition: all 0.4s ease-in-out 0s;
+  -moz-transition: all 0.4s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.image-prod img:hover .content-overlay {
+  opacity: 1;
+}
+
+.icon-view {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+/* batas */
 
 .short-desc {
   width: 200px;
@@ -250,6 +331,7 @@ img {
   text-align: center;
   line-height: 2em;
 }
+
 .not-available:before {
   font-family: fontawesome;
   content: "\f00d";
@@ -299,3 +381,132 @@ img {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+/* CHECKOUT */
+
+.img-co-prod img {
+  width: 80px;
+}
+
+.modal-header h5 {
+  font-size: 30px;
+  text-align: center;
+}
+
+.harga-co-prod h2 {
+  font-size: 25px;
+  margin-top: 10px;
+}
+
+.nameprod-co-prod h2 {
+  font-size: 25px;
+  margin-top: 10px;
+}
+
+.counter-co-prod p {
+  font-size: 20px;
+}
+
+.payment button {
+  background-color: #ffffff;
+  color: #003399;
+  font-weight: 600;
+}
+
+.modal-footer {
+  background-color: #003399;
+}
+
+.modal-footer h2 {
+  color: #ffffff;
+}
+
+/* PAYMENT SUCCESS */
+
+.payment-success i {
+  font-size: 200px;
+  color: #45c709;
+  margin-top: 60px;
+}
+
+.go-invoice-btn button {
+  background-color: #003399;
+  color: #fff;
+}
+
+.go-invoice-btn button:hover {
+  background-color: #003399;
+  color: rgb(180, 180, 180);
+}
+
+.go-shop-btn button {
+  background-color: #ffcc00;
+  color: #fff;
+}
+
+.go-shop-btn button:hover {
+  background-color: #ffcc00;
+  color: rgb(180, 180, 180);
+}
+
+/* Test Footer */
+
+footer {
+  margin-top: 200px;
+}
+
+.logo-list {
+  list-style: none;
+  display: inline-block;
+  /*  margin: 10px;*/
+  align-content: center;
+}
+
+#logo-sos {
+  width: auto;
+  height: auto;
+  /*margin: auto;*/
+  align-content: center;
+}
+
+#logo-sos img {
+  margin-bottom: 40px;
+  width: 200px;
+}
+
+#logos-list {
+  padding: 0;
+  margin-bottom: 0;
+  align-content: center;
+}
+
+.logo-sosmed {
+  transition: transform 0.2s; /* Animation */
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+  border-radius: 50px;
+  color: #003399;
+}
+
+.logo-sosmed:hover {
+  transform: scale(1.5);
+}
+
+.fa-brands {
+  color: black;
+}
+
+/* INVOICE */
+
+.img-inv-prod img {
+  width: 150px;
+}
+
+.header-inv {
+  padding: 25px 25px;
+}
+
+.header-inv h2 {
+  font-size: 20px;
+}
