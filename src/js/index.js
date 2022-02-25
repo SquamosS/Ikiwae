@@ -677,4 +677,102 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("boughtItem", JSON.stringify(checkoutItem));
     localStorage.setItem("totalPrice", totalPayment);
   });
+
+  document.querySelector("#go-to-payment").addEventListener("click", () => {
+    document.body.innerHTML = `
+    <!-- Header -->
+    <div class="container header border-bottom">
+      <div class="row">
+        <div class="col logo d-flex justify-content-center">
+          <a href="http://localhost:5500/index.html"
+            ><img
+              src="assets/img/logo-ikiwae.png"
+              class="logo-brand"
+              alt="logo ikiwae"
+          /></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container header-page">
+      <div class="row">
+        <div class="col d-flex justify-content-start">
+          <h1>Your Invoice</h1>
+        </div>
+        <div class="col d-flex justify-content-end align-self-center">
+          <h4>Invoice Number: N109283FBG/1/20022</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col me-3">
+          <div class="row mt-2 header-inv d-flex align-items-center bg-light">
+            <div class="col-2 d-flex justify-content-center">
+              <h2>Image</h2>
+            </div>
+            <div class="col-3 d-flex justify-content-center">
+              <h2>Product</h2>
+            </div>
+            <div class="col-4 d-flex justify-content-center">
+              <h2>Price</h2>
+            </div>
+            <div class="col-1 offset-1 d-flex justify-content-center">
+              <h2>Item(s)</h2>
+            </div>
+          </div>
+
+          <!-- Prod List -->
+          <div
+            class="row mt-2 co-prod pb-3 d-flex border align-items-center px-2"
+            id="invoice-item"
+          ></div>
+          
+          
+        </div>
+        <div class="col bg-light flex-column mt-2 bd-highlight footer-inv bd-highlight">
+          <div class="row mt-5">
+            <!-- sub total -->
+            <div class="row">
+              <div class="col-6 offset-1">
+                <h2>Sub Total</h2>
+              </div>
+              <div class="col d-flex justify-content-end total-payment"></div>
+            </div>
+
+            <!-- discount total -->
+            <div class="row mt-4">
+              <div class="col-6 offset-1">
+                <h2 class="fs-4">Discount</h2>
+              </div>
+              <div class="col d-flex justify-content-end discount-number">
+                <h2 class="fs-4">- Rp. 0</h2>
+              </div>
+            </div>
+
+            <!-- tax gimmic total -->
+            <div class="row mt-4">
+              <div class="col-6 offset-1">
+                <h2 class="fs-4">Total Tax</h2>
+              </div>
+              <div class="col d-flex justify-content-end tax-number">
+                <h2 class="fs-4">- Rp. 0</h2>
+              </div>
+            </div>
+          </div>
+
+          <div class="row total-number mt-5 bd-highlight">
+            <div class="row my-3">
+              <div class="col-6 offset-1">
+                <h2>Total</h2>
+              </div>
+              <div class="col d-flex justify-content-end total-payment"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    `;
+  });
 });
