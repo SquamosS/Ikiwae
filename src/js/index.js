@@ -331,6 +331,7 @@ function categorizedProduct(data) {
 
 let checkoutItem = [];
 const checkoutObject = {};
+
 /* ME-RENDER ITEM PERCATEGORY */
 function renderProduct(data, tag) {
   const separatedProducts = categorizedProduct(data);
@@ -520,10 +521,10 @@ let totalPayment = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
   badgeContainer.addEventListener("click", () => {
-    if (!checkoutItem.length)
+    if (!checkoutItem.length) {
       checkoutModal.innerHTML = `
         <div class="h3 text-center" style="padding-top: 70px; padding-bottom: 70px">Belanjaan kamu kosong</div>`;
-    else {
+    } else {
       for (const item in checkoutObject) {
         let {
           total,
