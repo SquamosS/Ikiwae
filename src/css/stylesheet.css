@@ -89,6 +89,11 @@
   font-size: 35px;
 }
 
+.card.product:hover {
+  box-shadow: 5px 5px #e2e2e2;
+  transform: scale(1.02);
+}
+
 .footer-card p {
   font-size: 20px;
   font-family: "Poppins";
@@ -316,7 +321,7 @@ img {
 
 .add-to-cart,
 .like {
-  background: #ff9f1a;
+  background-color: #ff9f1a;
   padding: 1.2em 1.5em;
   border: none;
   text-transform: UPPERCASE;
@@ -325,9 +330,10 @@ img {
   -webkit-transition: background 0.3s ease;
   transition: background 0.3s ease;
 }
-.add-to-cart:hover,
-.like:hover {
-  background: #b36800;
+
+.like:hover,
+.add-to-cart:hover {
+  background: #003399;
   color: #fff;
 }
 

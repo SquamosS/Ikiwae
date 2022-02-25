@@ -78,9 +78,9 @@
             <div class="row row-featured p-0">
                 <div class="col featured-main p-3 me-3 bg-light">
                     <div class="row">
-                        <div class="col img-feature">
+                        <div class="col img-feature bg-warning">
                             <!-- <img src="/assets/img/KASUR_SLATTUM.jpg" alt=""> -->
-                            <img src="https://i.ibb.co/sV5Pm3B/dev.png" alt="dev">
+                            <i class="fa-solid fa-truck-fast" style="font-size: 100px;"></i>
                         </div>
                         <div class="col">
                             <div class="row">
@@ -115,7 +115,7 @@
                 <div class="col featured-main p-3 ms-3 bg-light">
                     <div class="row">
                         <div class="col img-feature">
-                            <img src="https://www.freeiconspng.com/uploads/maintenance-icon-24.png" alt="ori">
+                            <img src="assets/img/waranty.jpg" alt="ori">
                         </div>
                         <div class="col">
                             <div class="row">
@@ -161,12 +161,12 @@
                                 <div class="col">
                                     <h2>Total</h2>
                                 </div>
-                                <div class="col-6 d-flex justify-content-end">
-                                    <h2>Rp. 3.322.000</h2>
+                                <div class="col-6 d-flex justify-content-end" id="total-checkout">
                                 </div>
                             </div>
                         </div>
-                        <div class="col d-flex justify-content-end payment">
+                        <div class="col d-flex justify-content-end payment" 
+                        id="go-to-payment">
                             <button type="button" class="btn p-3" data-bs-target="#exampleModalToggle2" data-bs-dismiss="modal" data-bs-toggle="modal" aria-label="Close">Payment</button>
                         </div>
                     </div>
@@ -194,7 +194,7 @@
                     </div>
                     <div class="row my-5">
                         <div class="col d-flex justify-content-end go-invoice-btn">
-                            <a href="http://localhost:5500/invoice.html">
+                            <a href="/invoice.html">
                                 <button type="button" class="btn p-3">
                                     <i class="fa-solid fa-receipt me-2"></i> Go to Invoice
                                 </button>

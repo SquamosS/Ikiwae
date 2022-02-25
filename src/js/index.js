@@ -89,9 +89,9 @@ const products = [
     category: `Meja`,
     colorAvailable: [`white`, `black`],
     rating: 3,
-    price: 2_799_000,
-    IDR: rupiah(2799000),
-    promo: 2_499_000,
+    price: 2_599_000,
+    IDR: rupiah(2599000),
+    promo: 2_299_000,
     image: imageUrl(`MEJA_LOMMARP.jpg`),
   },
   {
@@ -231,20 +231,20 @@ const products = [
     promo: 2_799_000,
     image: imageUrl(`KASUR_SLATTUM1.jpg`),
   },
-  {
-    id: 11,
-    nameProduct: `PLATSA`,
-    stock: 5,
-    shortDesc: `putih/fonnes,244x203 cm`,
-    longDesc: `Seprai PLATSA menutupi kebutuhan tidur dan penyimpanan Anda membantu Anda membuat oasis Anda sendiri di tempat-tempat terkecil sekalipun. Bersama dengan sistem PLATSA Anda dapat memiliki ruang privasi dan rumah untuk semua barang Anda.`,
-    category: `Kasur`,
-    colorAvailable: [`black`, `grey`, `white`, `red`],
-    rating: 5,
-    price: `17_470_000`,
-    IDR: rupiah(17470000),
-    promo: 15_000_000,
-    image: imageUrl(`KASUR_PLATSA.jpg`),
-  },
+  // {
+  //   id: 11,
+  //   nameProduct: `CLOSET`,
+  //   stock: 5,
+  //   shortDesc: `kebutuhan dasar, 46.5 x 35 x 43 cm`,
+  //   longDesc: `Kloset duduk siram, siramnya pakai gayung, sudah termasuk tutup dan baut`,
+  //   category: `Closet`,
+  //   colorAvailable: [`black`, `grey`, `white`, `red`],
+  //   rating: 3,
+  //   price: `FREE`,
+  //   IDR: `FREE`,
+  //   promo: 2_799_000,
+  //   image: imageUrl(`KOILEK.jpg`),
+  // },
   {
     id: 12,
     nameProduct: `HEMMA`,
@@ -329,13 +329,13 @@ function categorizedProduct(data) {
   return categoryResult;
 }
 
-const checkoutItem = [];
+let checkoutItem = [];
 const checkoutObject = {};
 /* ME-RENDER ITEM PERCATEGORY */
 function renderProduct(data, tag) {
   const separatedProducts = categorizedProduct(data);
   const productContainer = document.querySelector(tag);
-  const getTotalCart = localStorage.getItem("cartTotal");
+  const getTotalCart = localStorage.getItem("totalCart");
 
   document.querySelector(
     "#badge-container"
@@ -388,7 +388,6 @@ renderProduct(products, "#products");
 document.addEventListener("DOMContentLoaded", () => {
   let counterBadge = 0;
   const btnCheckout = document.getElementsByClassName("btn-checkout");
-  const badge = document.querySelector(".badge");
 
   for (const button of btnCheckout) {
     const idButton = button.getAttribute("value");
@@ -403,9 +402,9 @@ document.addEventListener("DOMContentLoaded", () => {
           document.querySelector(".badge").innerText = counterBadge;
           checkoutItem.push(product);
 
-          if (!checkoutObject[nameProduct])
+          if (!checkoutObject[nameProduct]) {
             checkoutObject[nameProduct] = { total: 0, product };
-
+          }
           checkoutObject[nameProduct].total++;
 
           // localStorage.setItem("checkoutItem", JSON.stringify(checkoutItem));
@@ -454,7 +453,6 @@ document.addEventListener("DOMContentLoaded", () => {
           promo,
           colorAvailable,
           stock,
-          color,
           image,
         } = product;
 
@@ -523,13 +521,13 @@ let totalPayment = 0;
 document.addEventListener("DOMContentLoaded", () => {
   badgeContainer.addEventListener("click", () => {
     if (!checkoutItem.length)
-      checkoutModal.innerHTML += `
+      checkoutModal.innerHTML = `
         <div class="h3 text-center" style="padding-top: 70px; padding-bottom: 70px">Belanjaan kamu kosong</div>`;
     else {
       for (const item in checkoutObject) {
         let {
           total,
-          product: { id, image, nameProduct, promo, shortDesc },
+          product: { id, image, nameProduct, promo },
         } = checkoutObject[item];
 
         // let totalItem = total;
@@ -541,33 +539,33 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
           <div class="col-3 nameprod-co-prod d-flex flex-column bd-highlight">
             <h2 class="bd-highlight">${nameProduct}</h2>
-            <!-- <p class="bd-highlight">${shortDesc}</p> -->
           </div>
           <div class="col-3 harga-co-prod d-flex justify-content-center">
-            <h2>Rp. ${promo}</h2>
+            <h2>Rp. ${rupiah(promo)}</h2>
         </div>
           <div class="col-3 counter-co-prod d-flex justify-content-center">
             <div class="btn-group" role="group" aria-label="Basic outlined example">
-                <button type="button" class="btn btn-outline-dark rounded-0 increment-button" value=${id}>+</button>
-                <div class="form-control form-control-sm border-0 px-3"><span style="font-size: 20px;"  class="total-container">${total}</span></div>
+                <button type="button" class="btn btn-outline-dark rounded-0 increment-button">+</button>
+                <div class="form-control form-control-sm border-0 px-3"><span style="font-size: 20px;"  class="total-container" value=${id}>${total}</span></div>
                 <button type="button" class="btn btn-outline-dark rounded-0 decrement-button" >-</button>
             </div>
           </div>
           <div class="col-1 delete-co-prod">
-            <a href="#" class="btn btn-danger rounded-0"><i class="fa-solid fa-circle-minus"></i></a>
+            <a class="btn btn-danger rounded-0"><i class="fa-solid fa-circle-minus"></i></a>
           </div>
         </div>`;
 
         document.querySelectorAll(".increment-button").forEach((button) => {
-          // FITUR DIBAWAH INI UNTUK UPDATE HANYA SATU SAJA
+          // FITUR (BUG) DIBAWAH INI UNTUK UPDATE HANYA SATU SAJA
 
           button.addEventListener("click", () => {
             total++;
             document.querySelector(".total-container").innerHTML = total;
           });
 
-          /*
-          // FITUR DIBAWAH INI UNTUK UPDATE  SEMUANYA 
+          /* 
+          // FITUR (BUG) DIBAWAH INI UNTUK UPDATE SEMUANYA
+
           document.querySelectorAll(".total-container").forEach((element) => {
             button.addEventListener("click", () => {
               total++;
@@ -575,18 +573,35 @@ document.addEventListener("DOMContentLoaded", () => {
             });
           });
           */
+
+          /* TO RE-RENDER PAYMENT */
+          button.addEventListener("click", () => {
+            document.querySelectorAll(".total-container").forEach((element) => {
+              const elementValue = element.getAttribute("value");
+
+              products.forEach((product) => {
+                if (product.id == elementValue) {
+                  checkoutItem.push(product);
+                }
+              });
+            });
+          });
         });
 
         document.querySelectorAll(".decrement-button").forEach((button) => {
-          // FITUR DIBAWAH INI UNTUK UPDATE HANYA SATU SAJA
+          // FITUR (BUG) DIBAWAH INI UNTUK UPDATE HANYA SATU SAJA
 
           button.addEventListener("click", () => {
-            total--;
+            if (total === 0) {
+              total = 0;
+            } else {
+              total--;
+            }
             document.querySelector(".total-container").innerHTML = total;
           });
 
           /*
-          // FITUR DIBAWAH INI UNTUK UPDATE  SEMUANYA 
+          // FITUR (BUG) DIBAWAH INI UNTUK UPDATE SEMUANYA 
           document.querySelectorAll(".total-container").forEach((element) => {
             button.addEventListener("click", () => {
               total--;
@@ -594,23 +609,71 @@ document.addEventListener("DOMContentLoaded", () => {
             });
           });
           */
+          button.addEventListener("click", () => {
+            document.querySelectorAll(".total-container").forEach((element) => {
+              const elementValue = element.getAttribute("value");
+
+              products.forEach((product) => {
+                if (product.id == elementValue) {
+                  checkoutItem.splice(checkoutItem.indexOf(product), 1);
+                }
+              });
+            });
+          });
         });
       }
+
+      /* DELETE PRODUCT (HARD CODE) */
+      document.querySelectorAll(".delete-co-prod").forEach((button) => {
+        button.addEventListener("click", () => {
+          checkoutModal.innerHTML = `
+            <div class="h3 text-center">Silahkan masukkan belanjaan</div>`;
+          checkoutItem = [];
+          document.querySelector("#total-checkout").innerHTML = `<h2>Rp 0</h2>`;
+          localStorage.setItem("totalCart", 0);
+        });
+      });
     }
+    /* TEMPORARY RESET CHECKOUT MODAL */
     document
       .querySelector(".btn-close")
       .addEventListener("click", () => (checkoutModal.innerHTML = ""));
+
+    /* PAYMENT RENDERING STARTS HERE */
+
+    /* COMPONENT DID MOUNT (FIRST RENDER) */
+    checkoutItem.forEach(({ promo }) => (totalPayment += promo));
+    document.querySelector("#total-checkout").innerHTML = `<h2>Rp ${
+      rupiah(totalPayment) || 0
+    }</h2>`;
+
+    /* COMPONENT DID UPDATE (RE-RENDER) */
+
+    const renderPayment = document.querySelector(".total-container");
+    const observer = new MutationObserver(() => {
+      totalPayment = 0;
+      checkoutItem.forEach(({ promo }) => (totalPayment += promo));
+      document.querySelector("#total-checkout").innerHTML = `<h2>Rp ${
+        rupiah(totalPayment) || 0
+      }</h2>`;
+
+      //  FOR EMERGENCY ONLY, DONT DELETE
+      // console.log(checkoutObject);
+
+      console.log(renderPayment.innerHTML);
+      console.log(checkoutItem);
+    });
+
+    observer.observe(renderPayment, {
+      attributes: true,
+      childList: true,
+      subtree: true,
+    });
   });
 
-  const observer = new MutationObserver(() => {
-    /* FOR EMERGENCY ONLY, DONT DELETE */
-    // console.log(checkoutObject);
-    // console.log(checkoutItem);
-  });
-
-  observer.observe(badgeContainer, {
-    attributes: true,
-    childList: true,
-    subtree: true,
+  document.querySelector("#go-to-payment").addEventListener("click", () => {
+    /* PASSING DATA TO LOCAL STORAGE FOR INVOICE */
+    localStorage.setItem("boughtItem", JSON.stringify(checkoutItem));
+    localStorage.setItem("totalPrice", totalPayment);
   });
 });
