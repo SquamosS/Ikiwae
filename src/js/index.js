@@ -534,7 +534,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // let totalItem = total;
 
         checkoutModal.innerHTML += `
-          <div class="row co-prod pb-3 d-flex border align-items-center px-2">
+          <div class="row co-prod pb-3 mt-2 d-flex border align-items-center px-2">
             <div class="col-2 img-co-prod pt-3">
               <img src="${image}" alt="">
             </div>
